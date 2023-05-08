@@ -20,56 +20,34 @@ This is the implementation of our paper [**Quaternion-valued Correlation Learnin
 
   Please see [OSLSM](https://arxiv.org/abs/1709.03410) and [FWB](https://openaccess.thecvf.com/content_ICCV_2019/html/Nguyen_Feature_Weighting_and_Boosting_for_Few-Shot_Segmentation_ICCV_2019_paper.html) for more details on datasets. 
 
-## Directory Structure
-Create a directory '../Datasets_HSN' for the above two few-shot segmentation datasets and appropriately place each dataset to have the following directory structure:
 
-    ../                         # parent directory
-    ├── ./                      # current (project) directory
-    │   ├── common/             
-    │   ├── data/               
-    │   ├── model/              # (dir.) implementation of Quaternion-valued Correlation Learning Network model 
-    │   ├── README.md         
-    │   ├── train.py            # code for training QCLNet
-    │   └── test.py             # code for testing QCLNet
-    └── Datasets_HSN/
-        ├── VOC2012/            # PASCAL VOC2012 devkit
-        │   ├── Annotations/
-        │   ├── ImageSets/
-        │   ├── ...
-        │   └── SegmentationClassAug/
-        └── COCO2014/           
-            ├── annotations/
-            │   ├── train2014/   
-            │   ├── val2014/    
-            │   └── ..some json files..
-            ├── train2014/
-            └── val2014/
 ## Test and Train
 Using PASCAL-5i as an example
+
 ### Training
 > #### PASCAL-5<sup>i</sup>
 > ```bash
-> python train.py --backbone {vgg16, resnet50, resnet101}  
->                 --fold {0, 1, 2, 3} 
->                 --benchmark pascal
->                 --lr 1e-3
->                 --bsz 20
->                 --logpath "your_experiment_name"
+># if you want to use default setting
+>python train.py --fold=0
+># if you want to use manual settings
+> python train.py  --backbone=resnet50 --fold=2  --dataset=pascal  --batch_size=20  
 > ```
-> * Take a look at train.py 's main function, where you can set different parameters
-> * When training another dataset, you only need to change the corresponding parameters
 
 ### Testing
 
 > #### PASCAL-5<sup>i</sup>
 > Load the trained model weights and start testing
 > ```bash
-> python test.py --backbone {vgg16, resnet50, resnet101}  
->                --fold {0, 1, 2, 3} 
->                --benchmark pascal
->                --nshot {1, 5} 
->                --load "path_to_trained_model/best_model.pt"
+># if you want to use default setting
+>python test.py --fold=0
+># if you want to use manual settings
+> python test.py --backbone=resnet50 --fold=2 --dataset=pascal --dataset=pascal  --load='best_model_pth'
 > ```
+
+## Visualization
+<p align="middle">
+    <img src="figure/vis.png">
+</p>
 
 ## References
 
