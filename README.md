@@ -1,5 +1,6 @@
 ## Quaternion-valued Correlation Learning for Few-Shot Semantic Segmentation
-This is the implementation of our paper [**Quaternion-valued Correlation Learning for Few-Shot Semantic Segmentation**](https://ieeexplore.ieee.org/document/9954424) that has been accepted to IEEE Transactions on Circuits and Systems for Video Technology (TCSVT). 
+This is the implementation of our paper [**Quaternion-valued Correlation Learning for Few-Shot Semantic Segmentation**](https://ieeexplore.ieee.org/document/9954424?source=authoralert) that has been accepted to IEEE Transactions on Circuits and Systems for Video Technology (TCSVT). 
+
 
 <p align="middle">
     <img src="figure/Figure2.jpg">
@@ -27,10 +28,7 @@ Using PASCAL-5i as an example
 ### Training
 > #### PASCAL-5<sup>i</sup>
 > ```bash
-># if you want to use default setting
->python train.py --fold=0
-># if you want to use manual settings
-> python train.py  --backbone=resnet50 --fold=2  --dataset=pascal  --batch_size=20  
+> python train.py  backbone=$BACKBONE$ fold=$FOLD$  dataset=$DATASET$  batch_size=$BATCH_SIZE$  
 > ```
 
 ### Testing
@@ -38,10 +36,7 @@ Using PASCAL-5i as an example
 > #### PASCAL-5<sup>i</sup>
 > Load the trained model weights and start testing
 > ```bash
-># if you want to use default setting
->python test.py --fold=0
-># if you want to use manual settings
-> python test.py --backbone=resnet50 --fold=2 --dataset=pascal --dataset=pascal  --load='best_model_pth'
+> python test.py  backbone=$BACKBONE$ fold=$FOLD$  dataset=$DATASET$  batch_size=$BATCH_SIZE$  load=$BEST_MODEL_PTH$
 > ```
 
 ## Visualization
@@ -60,7 +55,7 @@ If you find this project useful, please consider citing:
 @article{zheng2022qclnet,
   title={Quaternion-valued Correlation Learning for Few-Shot Semantic Segmentation},
   author={Zheng, Zewen and Huang, Guoheng and Yuan, Xiaochen and Pun, Chi-Man and Liu, Hongrui and Ling, Wing-Kuen},
-  journal={TCSVT},
-  year={2022}
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2023}
 }
 ```
