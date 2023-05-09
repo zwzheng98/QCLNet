@@ -34,7 +34,6 @@ Using PASCAL-5i as an example
 ### Testing
 
 > #### PASCAL-5<sup>i</sup>
-> Load the trained model weights and start testing
 > ```bash
 > python test.py  backbone=$BACKBONE$ fold=$FOLD$  dataset=$DATASET$  batch_size=$BATCH_SIZE$  load=$BEST_MODEL_PTH$
 > ```
